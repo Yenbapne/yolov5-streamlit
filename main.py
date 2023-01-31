@@ -79,7 +79,7 @@ if __name__ == '__main__':
         "Upload Image", type=['png', 'jpeg', 'jpg'])
     if uploaded_file is not None:
         is_valid = True
-        with st.spinner(text='资源加载中...'):
+        with st.spinner(text='Loading...'):
             st.sidebar.image(uploaded_file)
             picture = Image.open(uploaded_file)
             picture = picture.save(f'data/images/{uploaded_file.name}')
