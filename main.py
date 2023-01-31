@@ -27,7 +27,7 @@ def get_detection_folder():
     '''
     return max(get_subdirs(os.path.join('runs', 'detect')), key=os.path.getmtime)
 
-
+ # truyen doi so
 if __name__ == '__main__':
 
     st.title('YOLOv5 Streamlit App')
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     source_index = st.sidebar.selectbox("选择输入", range(
         len(source)), format_func=lambda x: source[x])
 
-   
+    
     uploaded_file = st.sidebar.file_uploader(
         "上传图片", type=['png', 'jpeg', 'jpg'])
     if uploaded_file is not None:
@@ -94,9 +94,10 @@ if __name__ == '__main__':
 
             detect(opt)
 
+           
             with st.spinner(text='Preparing Images'):
                 for img in os.listdir(get_detection_folder()):
                     st.image(str(Path(f'{get_detection_folder()}') / img))
 
                 st.balloons()
-          
+            
